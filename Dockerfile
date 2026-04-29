@@ -41,6 +41,11 @@ FROM mcr.microsoft.com/playwright:${PLAYWRIGHT_VERSION} AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+# Next.js standalone server defaults to HOSTNAME=localhost, which only binds
+# to loopback. Railway (and any external proxy) can't reach the container
+# unless we listen on 0.0.0.0. This is the one-line fix for the classic
+# "502 Application failed to respond" symptom on Railway / Fly / Cloud Run.
+ENV HOSTNAME=0.0.0.0
 ENV PORT=3000
 # Tell Playwright to use the system-installed Chromium from the base image.
 ENV PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1
