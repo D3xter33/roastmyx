@@ -1,0 +1,14 @@
+# Keep the Docker build context small.
+node_modules
+.next
+.git
+.github
+.vercel
+.env*
+!.env.example
+*.log
+.DS_Store
+.vscode
+.idea
+README.md
+DEPLOY.md

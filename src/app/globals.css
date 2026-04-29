@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------
+   RoastMyX — global styles
+   Dark mode only. Zinc-950 background, hot magenta + neon red accents.
+   ---------------------------------------------------------------------- */
+
+@theme {
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.985 0 0);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+html,
+body {
+  background: rgb(9 9 11); /* zinc-950 */
+  color: rgb(244 244 245); /* zinc-100 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  color-scheme: dark;
+}
+
+::selection {
+  background-color: rgba(255, 31, 138, 0.45);
+  color: white;
+}
+
+/* Custom scrollbar — subtle, dark, on-brand */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: rgb(9 9 11);
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(39 39 42);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(63 63 70);
+}
+
+/* Reduce motion for users who request it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
